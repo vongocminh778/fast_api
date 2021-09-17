@@ -6,6 +6,6 @@ app = FastAPI()
 async def test():
     return "success fastapi"
 
-@app.post('/', status_code=200)
+@app.post('/')
 async def test():
     return "200 OK"
