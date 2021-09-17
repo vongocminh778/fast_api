@@ -8,4 +8,4 @@ async def test():
 
 @app.get('/')
 async def test():
-    return ""
+    return 0
