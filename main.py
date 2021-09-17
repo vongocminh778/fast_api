@@ -8,4 +8,4 @@ async def test():
 
 @app.post('/', status_code=200)
 async def test():
-    return ""
+    return "acb"
