@@ -30,11 +30,9 @@ class Item(BaseModel):
 async def test():
     return "success fastapi"
 
-_json = {"app_id": "1960458872042889409","user_id_by_app": "5224557294600520762","event_name": "user_send_text","timestamp": "1631857569625","sender": {"id": "4574232636154508063"},"recipient": {"id": "579745863508352884"},"message": {"msg_id": "This is message id","text": "This is testing message"}}
-data = {'sender': 'Alice', 'receiver': 'Bob', 'message': 'We did it!'}
 @app.post('/')
 async def test(item:Item):
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-    response = requests.post("http://113.161.152.35:2090/api/Maintenance/getzalo", json=_json, headers=headers)
-    # print(response.content,response.text, response.headers, response.status_code,response.reason)
+    res = json.loads(item.json())
+    response = requests.post("http://113.161.152.35:2090/api/Maintenance/getzalo", json=res, headers=headers)
     return response.text
