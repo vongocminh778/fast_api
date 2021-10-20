@@ -28,6 +28,8 @@ class Item(BaseModel):
 
 @app.get('/test')
 async def test():
+    x = requests.get('https://oauth.zaloapp.com/v4/oa/permission?app_id=1960458872042889409&redirect_uri=https%3A%2F%2Fmrd-mic.herokuapp.com%2Ftest&code_challenge=f0EMbmD-7QACgIeZeAdPFEyxRa3kfqyn25N2nDTAg0E')
+    print(x.status_code)
     return "success fastapi"
 
 @app.post('/')
